@@ -1,8 +1,8 @@
 <?php
 header('Content-Type: application/json');
 
-$BOT_TOKEN = "7651657126:AAE0UylzrEhIJ49nVFExGvtY6QUFRcLwzDI";
-$CHAT_ID = "913676930";
+$BOT_TOKEN = getenv("BOT_TOKEN");
+$CHAT_ID = getenv("CHAT_ID");
 
 // Получаем JSON из POST-запроса
 $input = file_get_contents('php://input');
