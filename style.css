@@ -1,0 +1,144 @@
+/* Pastel, soft UI for Tic Tac Toe */
+:root {
+  --pink: #f8c8d8;
+  --peach: #f7e4d4;
+  --blue: #cfe7ff;
+  --text: #2f2a2a;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 20% 20%, #ffeef7, #f7f9ff 50%, #eef4ff 100%);
+  font-family: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--text);
+}
+
+.container {
+  width: min(520px, 92vw);
+  background: linear-gradient(135deg, #fff8f8, #f3f7ff);
+  border-radius: 28px;
+  padding: 32px 28px 36px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+h1 {
+  margin: 0 0 24px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  width: 360px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.cell {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--peach), var(--pink));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), var(--shadow);
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(36px, 6vw, 52px);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.cell--o {
+  color: #d86b8f;
+  text-shadow: 0 3px 8px rgba(216, 107, 143, 0.25);
+  font-size: clamp(40px, 7vw, 58px);
+}
+
+.cell:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.12);
+  filter: brightness(1.03);
+}
+
+.cell:active {
+  transform: translateY(-1px);
+}
+
+#message {
+  width: 360px;
+  max-width: 100%;
+  margin: 12px auto 6px;
+  padding: 12px 14px;
+  background: #ffffffd8;
+  border-radius: var(--radius);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 10px 22px rgba(0, 0, 0, 0.06);
+  font-weight: 600;
+}
+
+#restartBtn {
+  width: 180px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--pink), var(--blue));
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+  /* Центрирование текста */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#restartBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.12);
+  filter: brightness(1.04);
+}
+
+#restartBtn:active {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 24px 18px 28px;
+  }
+
+  #board {
+    gap: 10px;
+    width: 100%;
+  }
+
+  .cell {
+    font-size: clamp(32px, 10vw, 46px);
+  }
+
+  #message {
+    width: 100%;
+  }
+}
+
